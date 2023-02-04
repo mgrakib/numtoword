@@ -61,26 +61,33 @@ function numberToWord(number) {
 		else if (nString.length === 4) {
 			if (nString[1] == 0 && nString[2] == 0 && nString[3] == 0) {
 				console.log(oneToNineteen[nString[0]] + " Thousend ");
-			} else if (nString[1] == 0 && nString[2] == 0 && nString[3] >= 1) {
+			} else if (nString[1] == 0 && nString[2] == 0 && nString[3] <= 9) {
 				console.log(
 					oneToNineteen[nString[0]] +
 						" Thousend " +
 						oneToNineteen[nString[3]]
 				);
-			} else if (nString[1] == 0 && (nString[2] + nString[3] ) < 20) {
+			} else if (nString[1] == 0 && nString[2] == 1 && nString[3] <= 9) {
 				console.log(
 					oneToNineteen[nString[0]] +
 						" Thousend and " +
 						oneToNineteen[nString[2] + nString[3]]
 				);
-			}
-			
-			
-			else if (nString[1] == 0 && nString[2] + nString[3] < 20) {
+			} else if (nString[1] == 0 && nString[2] > 1 && nString[3] <= 9) {
 				console.log(
 					oneToNineteen[nString[0]] +
-						" Thousend " +
-						oneToNineteen[nString[2] + nString[3]]
+						" Thousend and " +
+						tenth[nString[2]] +
+						" " +
+						oneToNineteen[nString[3]]
+				);
+			} else if (nString[1] > 0 && nString[2] > 1 && nString[3] <= 9) {
+				console.log(
+					oneToNineteen[nString[0]] +
+						" Thousend  " + oneToNineteen[nString[1]] + " hundread and " + 
+						tenth[nString[2]] +
+						" " +
+						oneToNineteen[nString[3]]
 				);
 			}
 			
@@ -109,6 +116,6 @@ function numberToWord(number) {
 
 }
 
-numberToWord(9019);
+numberToWord(99);
 
 
